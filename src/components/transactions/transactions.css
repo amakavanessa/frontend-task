@@ -1,0 +1,134 @@
+@import url("https://fonts.adobe.com/fonts/degular-variable?vf-axes=wght%2C700%2Copsz%2C6%2Cital%2C0&vf-font-size=100&vf-font=DegularVar-TextThin");
+@import url("https://fonts.adobe.com/fonts/degular-variable?vf-axes=wght%2C600%2Copsz%2C6%2Cital%2C0&vf-font-size=100&vf-font=DegularVar-TextThin");
+@import url("https://fonts.adobe.com/fonts/degular-variable?vf-axes=wght%2C500%2Copsz%2C6%2Cital%2C0&vf-font-size=100&vf-font=DegularVar-TextThin");
+.transactions {
+  padding: 82px 124px;
+  position: relative;
+  font-family: "degular-variable", sans-serif;
+  color: #131316;
+}
+.transactions > div:first-child {
+  padding: 0px 0px 24px 0px;
+  border: 0px 0px 1px 0px;
+  border-bottom: 1px solid #eff1f6;
+}
+
+.transactions h3 {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 32px;
+  letter-spacing: -0.6000000238418579px;
+  text-align: left;
+}
+
+.transactions h3 + div {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: -0.20000000298023224px;
+  text-align: left;
+  color: #56616b;
+}
+.transactions .icon {
+  width: 20px;
+  height: 20px;
+}
+.transactions > div:first-child {
+  display: flex;
+  justify-content: space-between;
+}
+
+.transactions .action {
+  display: flex;
+  gap: 12px;
+  height: 48px;
+}
+.transactions .action > div {
+  display: flex;
+  gap: 12px;
+  padding: 12px 20px 12px 30px;
+  border-radius: 100px;
+  background-color: #eff1f6;
+  align-items: center;
+  justify-content: center;
+  color: #131316;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.4000000059604645px;
+  cursor: default;
+}
+.transactions .transaction-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.transaction-details {
+  margin: 33px 0.5px;
+}
+
+.transaction {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: -0.20000000298023224px;
+}
+
+.transaction .withdrawal-icon,
+.transaction .deposit-icon {
+  height: 48px;
+  width: 48px;
+  border-radius: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.transaction .deposit-icon {
+  color: #075132;
+  background-color: #e3fcf2;
+}
+.transaction .withdrawal-icon {
+  color: #961100;
+  background-color: #f9e3e0;
+}
+.transaction .transaction-title {
+  display: flex;
+  gap: 14.5px;
+  align-items: center;
+  justify-content: center;
+}
+.transaction .transaction-product {
+  font-size: 16px;
+
+  margin-bottom: 9px;
+}
+.transaction .transaction-amount {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 4px;
+  color: #131316;
+}
+.transaction .transaction-name,
+.transaction .transaction-date {
+  font-size: 14px;
+  color: #56616b;
+  text-transform: capitalize;
+}
+
+.transaction .failed {
+  color: #961100;
+  text-transform: capitalize;
+}
+.transaction .success {
+  color: #0ea163;
+  text-transform: capitalize;
+}
+.transaction .pending {
+  color: #a77a07;
+  text-transform: capitalize;
+}
+
+.transaction .right-align {
+  text-align: right;
+}

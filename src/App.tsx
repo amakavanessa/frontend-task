@@ -1,6 +1,7 @@
 import React from "react";
 import Navigation from "./components/navigation/navigation";
 import Dashboard from "./components/dashboard/dashboard";
+import Transactions from "./components/transactions/transactions";
 
 const App: React.FC = () => {
   return (
@@ -8,6 +9,7 @@ const App: React.FC = () => {
       <div className="container" id="container">
         <Navigation />
         <Dashboard />
+        <Transactions />
       </div>
     </div>
   );
