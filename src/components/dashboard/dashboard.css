@@ -1,0 +1,110 @@
+@import url("https://fonts.adobe.com/fonts/degular-variable?vf-axes=wght%2C700%2Copsz%2C6%2Cital%2C0&vf-font-size=100&vf-font=DegularVar-TextThin");
+@import url("https://fonts.adobe.com/fonts/degular-variable?vf-axes=wght%2C600%2Copsz%2C6%2Cital%2C0&vf-font-size=100&vf-font=DegularVar-TextThin");
+.dashboard {
+  font-family: "degular-variable", sans-serif;
+
+  padding: 64px 124px;
+
+  position: relative;
+  /* include 18px to the pt of ff element */
+}
+.dashboard .app-bar {
+  position: absolute;
+  width: 48px;
+  height: 192px;
+  top: 310px;
+  left: 0px;
+  padding: 4px;
+  border-radius: 100px;
+  box-shadow: 0px 4px 8px 0px #5c738314;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+}
+
+.dashboard .app-bar > span {
+  padding: 8px;
+  width: 40px;
+  height: 40px;
+}
+
+.dashboard .chart-container {
+  display: flex;
+  justify-content: space-between;
+}
+.dashboard .dashboard-summary {
+  display: flex;
+  /* justify-content: space-between; */
+  gap: 64px;
+}
+
+.dashboard .dashboard-summary .btn {
+  background: #131316;
+  padding: 14px 52px;
+  width: 167px;
+  height: 52px;
+  border-radius: 100px;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: -0.4000000059604645px;
+  display: flex;
+  align-items: center;
+}
+
+.dashboard .chart {
+  width: 765px;
+  height: 257px;
+}
+
+.dashboard .chart-container h5 {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: -0.20000000298023224px;
+  color: #56616b;
+}
+.dashboard .chart-container h5 + div {
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 48px;
+  letter-spacing: -1.5px;
+}
+.dashboard .dashboard-details {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.dashboard .dashboard-details h5 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 271px;
+  height: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: -0.20000000298023224px;
+  color: #56616b;
+}
+
+.dashboard .dashboard-details .icons {
+  width: 20px;
+  height: 20px;
+}
+.dashboard .dashboard-details > div {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.dashboard .dashboard-details > div > span {
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 38px;
+  letter-spacing: -0.6000000238418579px;
+  text-align: left;
+  color: #131316;
+}
