@@ -1,0 +1,95 @@
+@import url("https://fonts.adobe.com/fonts/degular-variable?vf-axes=wght%2C600%2Copsz%2C6%2Cital%2C0&vf-font-size=100&vf-font=DegularVar-TextThin");
+.nav {
+  padding: 12px;
+  border-radius: 100px;
+  background: linear-gradient(0deg, #ffffff, #ffffff),
+    linear-gradient(0deg, #ffffff, #ffffff);
+  border: 2px solid #ffffff;
+  box-shadow: 0px 2px 4px 0px #2d3b430d;
+  box-shadow: 0px 2px 6px 0px #2d3b430f;
+  font-family: "degular-variable", sans-serif;
+  color: #56616b;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: -0.4000000059604645px;
+  display: flex;
+  justify-content: space-between;
+  z-index: -1 !important;
+}
+.nav-logo {
+  padding: 2px 12px;
+}
+.nav .icon {
+  height: 20px;
+  width: 20px;
+}
+.nav > div {
+  display: flex;
+  align-items: center;
+}
+.nav .nav-menu > div {
+  padding: 8px 18px 8px 14px;
+  display: flex;
+  gap: 4px;
+  cursor: default;
+  border-radius: 100px;
+}
+.nav .nav-menu > div:not(.active):hover {
+  background-color: #eff1f6;
+}
+
+.nav .nav-menu {
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav .nav-menu .active {
+  background-color: #131316;
+  color: #ffffff;
+  border-radius: 100px;
+}
+
+.nav .nav-menu .active .icon {
+  transform: scaleX(-1);
+}
+
+.nav .nav-panel {
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+}
+.nav .nav-panel div:nth-child(1),
+.nav .nav-panel div:nth-child(2) {
+  padding: 10px;
+}
+.nav .nav-panel div:last-child {
+  padding: 4px 12px 4px 5px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  background: #eff1f6;
+  border-radius: 100px;
+}
+.nav .nav-panel div:last-child > div {
+  /* height: 32px;
+  width: 32px; */
+  border-radius: 100%;
+  font-size: 14px;
+  line-height: 16px;
+  background: linear-gradient(138.98deg, #5c6670 2.33%, #131316 96.28%);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.nav .nav-panel div:last-child span {
+  padding: 4px;
+}
+/* //styleName: Degular/Subtitle/6X Small;
+font-family: Degular;
+font-size: 16px;
+line-height: 24px;
+letter-spacing: -0.4000000059604645px;
+text-align: center; */
