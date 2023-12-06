@@ -1,0 +1,150 @@
+.filter-modal {
+  width: 0;
+  height: 100%;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  display: flex;
+  background-color: #ffffff;
+  transition: 0.5s ease;
+  border-radius: 20px;
+  box-shadow: 0px 8px 16px 4px #bcc4cc1a;
+  box-shadow: 0px 16px 32px 0px #dbdee51a;
+}
+.filter-modal .modal-top {
+  height: 34px;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 29px;
+  letter-spacing: 0em;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 24px;
+}
+
+.filter-modal .modal-top .icon {
+  width: 24px;
+  height: 24px;
+  font-weight: 500;
+}
+.filter-modal .modal-body {
+  padding: 8px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.filter-modal .date-container ul {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 16px;
+  letter-spacing: -0.4000000059604645px;
+}
+.filter-modal .date-container ul li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 18px;
+  border-radius: 100px;
+  border: 1px solid #eff1f6;
+  background-color: #eff1f6;
+}
+
+.filter-modal .range-container h5 {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: -0.4000000059604645px;
+}
+.filter-modal h5 + div {
+  margin-top: 12px;
+}
+.filter-modal .range-container > div {
+  display: flex;
+  gap: 6px;
+}
+.filter-modal input[type="date"] {
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 1px solid #eff1f6;
+  background: #eff1f6;
+  width: 203px;
+  cursor: default;
+}
+
+.filter-modal .txnType,
+.filter-modal .txnStatus {
+  position: relative;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 1px solid #eff1f6;
+  background: #eff1f6;
+  cursor: default;
+  margin-bottom: 4px;
+}
+
+.filter-modal .txnType input,
+.filter-modal .txnStatus input {
+  border: none;
+  background: none;
+  outline: none;
+  width: calc(100% - 24px);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: -0.20000000298023224px;
+}
+
+.filter-modal .txnType span,
+.filter-modal .txnStatus span {
+  position: absolute;
+  top: 50%;
+  right: 16px; /* Adjust the right spacing based on your preference */
+  transform: translateY(-50%);
+}
+
+.filter-modal .txnType #expand-less-icon,
+.filter-modal .txnStatus #expand-less-icon2 {
+  visibility: hidden;
+}
+.filter-modal .txnTypeDropdown,
+.filter-modal .txnStatusDropdown {
+  padding: 8px;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0px 6px 12px 0px #5c738314;
+  box-shadow: 0px 4px 8px 0px #5c738314;
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+  display: none;
+}
+
+.filter-modal .txnTypeDropdown > div,
+.filter-modal .txnStatusDropdown > div {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  /* justify-content: center; */
+  padding: 14px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: -0.4000000059604645px;
+}
+
+.filter-modal .txnType input[type="checkbox"],
+.filter-modal .txnStatus input[type="checkbox"] {
+  width: 17px;
+  height: 17px;
+}
+
+.filter-modal input[type="checkbox"]:checked,
+.filter-modal input[type="checkbox"]:checked {
+  accent-color: #1c1b1f !important;
+}

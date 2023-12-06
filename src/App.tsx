@@ -14,5 +14,5 @@ const App: React.FC = () => {
     </div>
   );
 };
-// nn
+
 export default App;
