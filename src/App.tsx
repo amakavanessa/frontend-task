@@ -86,6 +86,7 @@ const App: React.FC = () => {
   useEffect(() => {
     fetchTransactions();
     setActiveFilterCount(countActiveFilters());
+    // eslint-disable-next-line
   }, [activeFilterCount, txnType, txnStatus, startDate, endDate]);
 
   return (
