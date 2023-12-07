@@ -1,5 +1,7 @@
 @import url("https://fonts.adobe.com/fonts/degular-variable?vf-instance=Text+Thin&vf-font-size=100&vf-font=DegularVar-TextThin");
-
+@import url("https://fonts.adobe.com/fonts/degular-variable?vf-axes=wght%2C700%2Copsz%2C6%2Cital%2C0&vf-font-size=100&vf-font=DegularVar-TextThin");
+@import url("https://fonts.adobe.com/fonts/degular-variable?vf-axes=wght%2C600%2Copsz%2C6%2Cital%2C0&vf-font-size=100&vf-font=DegularVar-TextThin");
+@import url("https://fonts.adobe.com/fonts/degular-variable?vf-axes=wght%2C500%2Copsz%2C6%2Cital%2C0&vf-font-size=100&vf-font=DegularVar-TextThin");
 * {
   margin: 0;
   padding: 0;

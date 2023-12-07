@@ -12,7 +12,7 @@ import {
   MdOutlineChat,
 } from "react-icons/md";
 
-const Navigation: React.FC = () => {
+const NavigationComponent: React.FC = () => {
   return (
     <nav className="nav">
       <div className="nav-logo">
@@ -74,4 +74,4 @@ const Navigation: React.FC = () => {
   );
 };
 
-export default Navigation;
+export default NavigationComponent;

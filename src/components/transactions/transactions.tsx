@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import dayjs from "dayjs";
 import {
   MdExpandMore,
@@ -7,8 +7,9 @@ import {
   MdOutlineCallMade,
 } from "react-icons/md";
 import "./transactions.css";
+import NoDataComponent from "../nodata/nodata";
 
-const Transactions: React.FC<{
+const TransactionsComponent: React.FC<{
   transactions: any;
   activeFilterCount: any;
 }> = (props: { transactions: any; activeFilterCount: any }) => {
@@ -63,9 +64,10 @@ const Transactions: React.FC<{
           </div>
         </div>
         <div className="transaction-details">
-          {" "}
-          <div>
-            {
+          {activeFilterCount && !transactions.length ? (
+            <NoDataComponent />
+          ) : (
+            <div>
               <div className="transaction-container">
                 {transactions.map((txn: any) => (
                   <div className="transaction" key={txn.payment_reference}>
@@ -134,7 +136,9 @@ const Transactions: React.FC<{
                       </div>
                       <div>
                         {txn.date && (
-                          <div className="transaction-date">{txn.date}</div>
+                          <div className="transaction-date">
+                            {dayjs(txn.date).format("MMM D, YYYY")}
+                          </div>
                         )}
                         {!txn.date && <div className="transaction-date">-</div>}
                       </div>
@@ -142,14 +146,13 @@ const Transactions: React.FC<{
                   </div>
                 ))}
               </div>
-            }
-          </div>
+            </div>
+          )}
         </div>
-        <div>
-          {activeFilterCount && !transactions.length ? <div>Hello</div> : null}
-        </div>
+
+        {/*  <div>Hello</div> : null} */}
       </div>
     </div>
   );
 };
-export default Transactions;
+export default TransactionsComponent;

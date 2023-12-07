@@ -10,7 +10,7 @@ import icon4 from "../../assets/ProductIcons(4).svg";
 import { MdInfoOutline } from "react-icons/md";
 import { TransactionInterface } from "../../interface/interface";
 
-const Dashboard: React.FC<{
+const DashboardComponent: React.FC<{
   transactions: any;
 
   activeFilterCount: any;
@@ -39,8 +39,6 @@ const Dashboard: React.FC<{
     },
   };
   const transactions = props.transactions;
-
-  const activeFilterCount = props.activeFilterCount;
 
   const successDepositAmount = transactions
     .filter(
@@ -190,4 +188,4 @@ const Dashboard: React.FC<{
   );
 };
 
-export default Dashboard;
+export default DashboardComponent;

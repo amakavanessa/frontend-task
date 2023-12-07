@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import dayjs from "dayjs";
-import Navigation from "./components/navigation/navigation";
-import Dashboard from "./components/dashboard/dashboard";
-import Transactions from "./components/transactions/transactions";
-import Filtermodal from "./components/filtermodal/filtermodal";
+import NavigationComponent from "./components/navigation/navigation";
+import DashboardComponent from "./components/dashboard/dashboard";
+import TransactionsComponent from "./components/transactions/transactions";
+import FiltermodalComponent from "./components/filtermodal/filtermodal";
 import { TransactionInterface } from "./interface/interface";
 
 const App: React.FC = () => {
@@ -91,16 +91,16 @@ const App: React.FC = () => {
   return (
     <div>
       <div className="container" id="container">
-        <Navigation />
-        <Dashboard
+        <NavigationComponent />
+        <DashboardComponent
           transactions={transactions}
           activeFilterCount={activeFilterCount}
         />
-        <Transactions
+        <TransactionsComponent
           transactions={transactions}
           activeFilterCount={activeFilterCount}
         />
-        <Filtermodal sendFilterData={populateFilter} />
+        <FiltermodalComponent sendFilterData={populateFilter} />
       </div>
     </div>
   );

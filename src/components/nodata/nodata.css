@@ -1,0 +1,52 @@
+.no-data {
+  width: 369px;
+  margin: 0 auto;
+  margin-top: 65px;
+  font-family: "degular-variable", sans-serif;
+  color: #131316;
+}
+.no-data .icon {
+  width: 24px;
+  height: 24px;
+}
+
+.no-data > div > span {
+  display: flex;
+  width: 48px;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #dbdee6 1.89%, #f6f7f9 98.77%);
+
+  padding: 12px;
+  border-radius: 16px;
+}
+
+.no-data > div h5 {
+  margin-top: 20px;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 40px;
+  letter-spacing: -0.6000000238418579px;
+  text-align: left;
+}
+
+.no-data > div p {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: -0.20000000298023224px;
+  color: #56616b;
+  padding-top: 10px;
+}
+
+.no-data > div button {
+  font-size: 16px;
+  padding: 12px 24px;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: -0.4000000059604645px;
+  text-align: center;
+  margin-top: 32px;
+  border-radius: 100px;
+  background-color: #eff1f6;
+}

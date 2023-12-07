@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { MdExpandMore, MdOutlineClose, MdExpandLess } from "react-icons/md";
 import "./filtermodal.css";
-const Filtermodal: React.FC<{
+const FiltermodalComponent: React.FC<{
   sendFilterData: (
     txnType: string[] | null,
     txnStatus: string[] | null,
@@ -297,4 +297,4 @@ const Filtermodal: React.FC<{
     </div>
   );
 };
-export default Filtermodal;
+export default FiltermodalComponent;
