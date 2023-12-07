@@ -10,6 +10,7 @@
   border-radius: 20px;
   box-shadow: 0px 8px 16px 4px #bcc4cc1a;
   box-shadow: 0px 16px 32px 0px #dbdee51a;
+  z-index: 100;
 }
 .filter-modal .modal-top {
   height: 34px;
