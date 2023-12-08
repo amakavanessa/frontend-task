@@ -27,7 +27,6 @@ const FiltermodalComponent: React.FC<{
     const filter = document.getElementById("filter");
     if (filter && container) {
       filter.style.width = "0px";
-      container.classList.remove("overlay");
     }
   }
   function showTxnTypeDropdown() {
@@ -119,8 +118,8 @@ const FiltermodalComponent: React.FC<{
   };
 
   return (
-    <div>
-      <div className="filter-modal" id="filter">
+    <div className="filter-modal" id="filter">
+      <div>
         <div>
           <div className="modal-top">
             Filter

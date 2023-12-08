@@ -1,18 +1,25 @@
 .filter-modal {
-  width: 0;
+  width: 0%;
   height: 100%;
   overflow: hidden;
   position: absolute;
   top: 0;
   right: 0;
   display: flex;
-  background-color: #ffffff;
-  transition: 0.5s ease;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: 0.4s ease;
+  z-index: 100;
+  color: #131316;
+  justify-content: flex-end;
+}
+.filter-modal > div {
+  width: 456px;
+  margin: 16px 5px;
   border-radius: 20px;
   box-shadow: 0px 8px 16px 4px #bcc4cc1a;
   box-shadow: 0px 16px 32px 0px #dbdee51a;
-  z-index: 100;
-  color: #131316;
+  background-color: #ffffff;
+  position: relative;
 }
 .filter-modal .modal-top {
   height: 34px;
@@ -194,8 +201,31 @@
 @media screen and (max-width: 500px) {
   .filter-modal > div {
     width: 100%;
+    margin: 0;
+    border-radius: 0;
+  }
+  .filter-modal .date-container {
+    margin: 0 auto;
+    padding: 4px 6px 4px 6px;
+  }
+  .filter-modal .date-container ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .filter-modal .date-container ul li {
+    display: flex;
+    padding: 6px 10px;
+    justify-content: center;
+    font-size: 10px;
+  }
+  .filter-modal .range-container > div {
+    flex-direction: column;
   }
   .filter-actions {
+    flex-direction: column-reverse;
+  }
+  /* .filter-actions {
     right: 0px;
     left: 0px;
     justify-content: space-around;
@@ -252,5 +282,5 @@
   }
   .filter-actions > span {
     padding: 12px 50px;
-  }
+  } */
 }

@@ -15,7 +15,7 @@ const MenuModal: React.FC<{ user: UserInterface | null }> = (props: {
   user: UserInterface | null;
 }) => {
   const user = props.user;
-  console.log(user);
+
   return (
     <div className="menu-modal-container">
       <div className="menu-modal">

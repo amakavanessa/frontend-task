@@ -86,8 +86,6 @@ const App: React.FC = () => {
     }
   };
 
-  console.log(transactions, activeFilterCount);
-
   useEffect(() => {
     fetchTransactions();
     setActiveFilterCount(countActiveFilters());
