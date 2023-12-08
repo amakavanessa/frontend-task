@@ -38,6 +38,10 @@
   height: 24px;
   font-weight: 500;
 }
+.filter-modal .modal-top .icon:hover {
+  box-shadow: 0px 4px 8px 0px #5c738314;
+}
+
 .filter-modal .modal-body {
   display: flex;
   flex-direction: column;
@@ -68,6 +72,10 @@
   font-weight: 600;
   line-height: 16px;
   letter-spacing: -0.4000000059604645px;
+  cursor: default;
+}
+.filter-modal .date-container ul li:hover {
+  box-shadow: 0px 4px 8px 0px #5c738314;
 }
 
 .filter-modal h5 {
@@ -211,7 +219,7 @@
   .filter-modal .date-container ul {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
   }
   .filter-modal .date-container ul li {
     display: flex;

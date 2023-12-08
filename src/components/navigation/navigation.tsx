@@ -59,7 +59,7 @@ const NavigationComponent: React.FC = () => {
         <div className="small-menu">
           <div className="nav-logo">
             <span>
-              <img src={Logo} alt="mainstack-logo" />
+              <img src={Logo} alt="mainstack-logo-small" />
             </span>
           </div>
           <span onClick={showSmallScreenNav}>
@@ -104,6 +104,7 @@ const NavigationComponent: React.FC = () => {
             className={`nav-app ${isNavAppModalVisible ? "active" : ""}`}
             style={{ position: "relative", borderRadius: "100px " }}
             onClick={toggleNavAppModal}
+            data-testid="nav-app-trigger"
           >
             <div className="app">
               <div>
@@ -127,10 +128,14 @@ const NavigationComponent: React.FC = () => {
                 </div>
               )}
             </div>
-            {isNavAppModalVisible && <NavAppModal />}
+            {isNavAppModalVisible && (
+              <div data-testid="nav-app-modal">
+                <NavAppModal />
+              </div>
+            )}
           </div>
         </div>
-        <div className="nav-panel hide">
+        <div className="nav-panel hide " data-testid="nav-panel">
           <div>
             <span>
               <MdNotificationsNone className="icon" />
@@ -141,7 +146,11 @@ const NavigationComponent: React.FC = () => {
               <MdOutlineChat className="icon" />
             </span>
           </div>
-          <div style={{ position: "relative" }} onClick={toggleMenuModal}>
+          <div
+            style={{ position: "relative" }}
+            onClick={toggleMenuModal}
+            data-testid="nav-menu-trigger"
+          >
             <div className="menu">
               <div className="user-inits">
                 {" "}
@@ -154,7 +163,11 @@ const NavigationComponent: React.FC = () => {
                 <MdMenu className="icon" />
               </span>
             </div>
-            {isMenuModalVisible && <MenuModal user={user} />}
+            {isMenuModalVisible && (
+              <div data-testid="nav-menu-modal">
+                <MenuModal user={user} />
+              </div>
+            )}
           </div>
         </div>{" "}
       </nav>{" "}

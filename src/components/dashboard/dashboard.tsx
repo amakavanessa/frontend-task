@@ -3,24 +3,21 @@ import dayjs from "dayjs";
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
 import "./dashboard.css";
-import Producticon1 from "../../assets/ProductIcons.svg";
-import icon2 from "../../assets/ProductIcons5).svg";
-import icon3 from "../../assets/ProductIcons(3).svg";
-import icon4 from "../../assets/ProductIcons(4).svg";
+import link from "../../assets/link.svg";
+import invoice from "../../assets/invoice.svg";
+import store from "../../assets/store.svg";
+import media from "../../assets/media.svg";
 import { MdInfoOutline } from "react-icons/md";
 import {
   TransactionInterface,
   WalletInterface,
   HighChartOptionInterface,
+  DashboardPropsInterface,
 } from "../../interface/interface";
 
-const DashboardComponent: React.FC<{
-  transactions: TransactionInterface[];
-  activeFilterCount: number;
-}> = (props: {
-  transactions: TransactionInterface[];
-  activeFilterCount: number;
-}) => {
+const DashboardComponent: React.FC<DashboardPropsInterface> = (
+  props: DashboardPropsInterface
+) => {
   const [wallet, setWallet] = useState<WalletInterface>();
 
   const options: HighChartOptionInterface = {
@@ -67,23 +64,23 @@ const DashboardComponent: React.FC<{
   }, []);
 
   return (
-    <div className="dashboard-container">
+    <div className="dashboard-container" data-testid="dashboard-container">
       <div className="dashboard">
         <div className="app-bar">
           <span>
-            <img src={Producticon1} alt="product-icon" />
+            <img src={link} alt="product-icon" />
           </span>
 
           <span>
             {" "}
-            <img src={icon3} alt="product-icon" />
+            <img src={store} alt="product-icon" />
           </span>
           <span>
             {" "}
-            <img src={icon4} alt="product-icon" />
+            <img src={media} alt="product-icon" />
           </span>
           <span>
-            <img src={icon2} alt="product-icon" />
+            <img src={invoice} alt="product-icon" />
           </span>
         </div>
         <div className="chart-container">

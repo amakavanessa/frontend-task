@@ -1,9 +1,9 @@
 import React from "react";
 import "./navAppmodal.css";
-import link from "../../assets/ProductIcons.svg";
-import store from "../../assets/ProductIcons5).svg";
-import media from "../../assets/ProductIcons(3).svg";
-import invoicing from "../../assets/ProductIcons(4).svg";
+import link from "../../assets/link.svg";
+import store from "../../assets/store.svg";
+import media from "../../assets/media.svg";
+import invoicing from "../../assets/invoice.svg";
 const NavAppModal: React.FC = () => {
   return (
     <div className="modal-container">

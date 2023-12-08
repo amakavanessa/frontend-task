@@ -8,17 +8,14 @@ import {
 } from "react-icons/md";
 import "./transactions.css";
 import NoDataComponent from "../nodata/nodata";
-import { TransactionInterface } from "../../interface/interface";
+import {
+  TransactionInterface,
+  TransactionPropsInterface,
+} from "../../interface/interface";
 
-const TransactionsComponent: React.FC<{
-  transactions: TransactionInterface[];
-  activeFilterCount: number;
-  clearFilter: () => void;
-}> = (props: {
-  transactions: TransactionInterface[];
-  activeFilterCount: number;
-  clearFilter: () => void;
-}) => {
+const TransactionsComponent: React.FC<TransactionPropsInterface> = (
+  props: TransactionPropsInterface
+) => {
   const transactions = props.transactions;
 
   const activeFilterCount = props.activeFilterCount;

@@ -94,7 +94,7 @@ const App: React.FC = () => {
 
   return (
     <div className="container" id="container">
-      <div className="app-wrapper">
+      <div>
         <NavigationComponent />
         <DashboardComponent
           transactions={transactions}

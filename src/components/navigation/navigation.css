@@ -57,14 +57,17 @@
 .nav .nav-menu .active .icon {
   transform: scaleX(-1);
 }
-
+.active:hover {
+  box-shadow: 0px 4px 8px 0px #5c738314;
+}
 .nav .nav-panel {
   gap: 8px;
   align-items: center;
   justify-content: center;
 }
-.nav .nav-panel div:nth-child(1),
-.nav .nav-panel div:nth-child(2) {
+
+.nav .nav-panel > div:nth-child(1),
+.nav .nav-panel > div:nth-child(2) {
   padding: 10px;
 }
 .nav .nav-panel .menu {
@@ -76,6 +79,9 @@
   background: #eff1f6;
   border-radius: 100px;
 }
+.nav .nav-panel > div:hover {
+  box-shadow: 0px 4px 8px 0px #5c738314;
+}
 .nav .nav-panel .user-inits {
   border-radius: 100%;
   font-size: 14px;
@@ -85,6 +91,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 6px;
 }
 .nav .nav-panel div:last-child span {
   padding: 4px;

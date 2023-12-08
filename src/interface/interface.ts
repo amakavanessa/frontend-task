@@ -46,3 +46,24 @@ export interface HighChartOptionInterface {
     enabled: boolean;
   };
 }
+
+export interface FilterPropsInterface {
+  sendFilterData: (
+    txnType: string[] | null,
+    txnStatus: string[] | null,
+    startDate: string | null,
+    endDate: string | null
+  ) => void;
+  clearFilter: () => void;
+}
+
+export interface DashboardPropsInterface {
+  transactions: TransactionInterface[];
+  activeFilterCount: number;
+}
+
+export interface TransactionPropsInterface {
+  transactions: TransactionInterface[];
+  activeFilterCount: number;
+  clearFilter: () => void;
+}

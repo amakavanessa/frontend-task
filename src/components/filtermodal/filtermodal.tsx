@@ -1,23 +1,10 @@
 import React, { useState } from "react";
 import { MdExpandMore, MdOutlineClose, MdExpandLess } from "react-icons/md";
 import "./filtermodal.css";
-const FiltermodalComponent: React.FC<{
-  sendFilterData: (
-    txnType: string[] | null,
-    txnStatus: string[] | null,
-    startDate: string | null,
-    endDate: string | null
-  ) => void;
-  clearFilter: () => void;
-}> = (props: {
-  sendFilterData: (
-    txnType: string[] | null,
-    txnStatus: string[] | null,
-    startDate: string | null,
-    endDate: string | null
-  ) => void;
-  clearFilter: () => void;
-}) => {
+import { FilterPropsInterface } from "../../interface/interface";
+const FiltermodalComponent: React.FC<FilterPropsInterface> = (
+  props: FilterPropsInterface
+) => {
   const [txnType, setTxnType] = useState<string[]>([]);
   const [txnStatus, setTxnStatus] = useState<string[]>([]);
   const [startDate, setStartDate] = useState<string>("");
