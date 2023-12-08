@@ -37,11 +37,20 @@ const TransactionsComponent: React.FC<{
   function showFilterModal() {
     const container = document.getElementById("container");
     const filter = document.getElementById("filter");
+    const screenWidth =
+      window.innerWidth || document.documentElement.clientWidth;
+
     if (filter && container) {
-      filter.style.width = "456px";
-      filter.style.right = "0px";
+      if (screenWidth < 500) {
+        filter.style.width = screenWidth + "px";
+        filter.style.right = "0";
+      } else {
+        filter.style.width = "456px";
+        filter.style.right = "0";
+      }
     }
   }
+
   const clearFilter = () => {
     props.clearFilter();
   };

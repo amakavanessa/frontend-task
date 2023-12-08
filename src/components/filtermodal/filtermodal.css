@@ -1,13 +1,10 @@
-@import url("https://fonts.adobe.com/fonts/degular-variable?vf-axes=wght%2C700%2Copsz%2C6%2Cital%2C0&vf-font-size=100&vf-font=DegularVar-TextThin");
-@import url("https://fonts.adobe.com/fonts/degular-variable?vf-axes=wght%2C600%2Copsz%2C6%2Cital%2C0&vf-font-size=100&vf-font=DegularVar-TextThin");
-@import url("https://fonts.adobe.com/fonts/degular-variable?vf-axes=wght%2C500%2Copsz%2C6%2Cital%2C0&vf-font-size=100&vf-font=DegularVar-TextThin");
-
 .filter-modal {
   width: 0;
   height: 100%;
   overflow: hidden;
   position: absolute;
   top: 0;
+  right: 0;
   display: flex;
   background-color: #ffffff;
   transition: 0.5s ease;
@@ -15,7 +12,6 @@
   box-shadow: 0px 8px 16px 4px #bcc4cc1a;
   box-shadow: 0px 16px 32px 0px #dbdee51a;
   z-index: 100;
-  font-family: "degular-variable", sans-serif;
   color: #131316;
 }
 .filter-modal .modal-top {
@@ -24,7 +20,6 @@
   font-weight: 700;
   line-height: 29px;
   letter-spacing: 0em;
-
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -117,7 +112,7 @@
 .filter-modal .txnStatus span {
   position: absolute;
   top: 50%;
-  right: 16px; /* Adjust the right spacing based on your preference */
+  right: 16px;
   transform: translateY(-50%);
 }
 
@@ -177,21 +172,85 @@
 
 .filter-actions > span {
   padding: 12px 82px;
-
   border-radius: 100px;
   cursor: default;
 }
-/* .filter-actions > span:first-child:hover {
-  color: red;
-} */
 
 .filter-actions > span:first-child {
   border: 1px solid #eff1f6;
   background: linear-gradient(0deg, #ffffff, #ffffff),
     linear-gradient(0deg, #eff1f6, #eff1f6);
 }
+.filter-actions > span:first-child:hover,
+.filter-actions > span:last-child:hover {
+  border: 1px solid #131316;
+}
 
 .filter-actions > span:last-child {
   background: #dbdee5;
   color: #ffffff;
+}
+
+@media screen and (max-width: 500px) {
+  .filter-modal > div {
+    width: 100%;
+  }
+  .filter-actions {
+    right: 0px;
+    left: 0px;
+    justify-content: space-around;
+  }
+  .filter-modal .date-container {
+    margin: 0 auto;
+    padding: 4px 6px 4px 6px;
+  }
+  .filter-modal .modal-top {
+    justify-content: space-around;
+    align-items: center;
+    margin: 20px auto;
+  }
+  .filter-modal .date-container ul {
+    display: flex;
+    justify-content: center;
+  }
+  .filter-modal .date-container ul li {
+    display: flex;
+
+    padding: 5px 9px;
+
+    font-size: 12px;
+  }
+
+  .filter-modal h5 {
+    padding-left: 22px;
+  }
+  .filter-modal .range-container > div {
+    justify-content: center;
+  }
+  .filter-modal input[type="date"] {
+    padding: 10px 1px;
+    width: 155px;
+  }
+  .filter-modal .txnType,
+  .filter-modal .txnStatus {
+    padding: 14px 2px;
+  }
+
+  .filter-modal .txnType input,
+  .filter-modal .txnStatus input {
+    border: none;
+    background: none;
+    outline: none;
+
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16px;
+    letter-spacing: -0.20000000298023224px;
+  }
+  .txn-type-container {
+    margin: 0 20px;
+  }
+  .filter-actions > span {
+    padding: 12px 50px;
+  }
 }

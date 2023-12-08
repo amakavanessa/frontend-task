@@ -2,11 +2,8 @@
 @import url("https://fonts.adobe.com/fonts/degular-variable?vf-axes=wght%2C600%2Copsz%2C6%2Cital%2C0&vf-font-size=100&vf-font=DegularVar-TextThin");
 .dashboard {
   font-family: "degular-variable", sans-serif;
-
   padding: 64px 124px;
-
   position: relative;
-  /* include 18px to the pt of ff element */
 }
 .dashboard .app-bar {
   position: absolute;
@@ -36,7 +33,6 @@
 }
 .dashboard .dashboard-summary {
   display: flex;
-  /* justify-content: space-between; */
   gap: 64px;
 }
 
@@ -107,4 +103,77 @@
   letter-spacing: -0.6000000238418579px;
   text-align: left;
   color: #131316;
+}
+@media screen and (max-width: 1200px) {
+  .dashboard {
+    padding: 64px 20px;
+  }
+  .dashboard .app-bar {
+    display: none;
+  }
+  .dashboard .chart {
+    max-width: 600px;
+    height: auto;
+  }
+  .dashboard .dashboard-details {
+    justify-content: space-around;
+  }
+  .dashboard .dashboard-details h5 {
+    width: 100%;
+  }
+  .dashboard .chart-container {
+    justify-content: space-around;
+  }
+  .dashboard .dashboard-details > div > span {
+    line-height: 30px;
+  }
+  .dashboard .dashboard-details .icons {
+    width: 12px;
+    height: 12px;
+  }
+}
+@media screen and (max-width: 950px) {
+  .dashboard {
+    padding: 64px 124px;
+  }
+
+  .dashboard .chart {
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+  }
+  .dashboard .dashboard-summary {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .dashboard .chart-container {
+    flex-direction: column-reverse;
+    gap: 12px;
+  }
+  .dashboard .dashboard-details .icons {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .dashboard {
+    padding: 30px 10px;
+  }
+
+  .dashboard .dashboard-summary .btn {
+    padding: 7px 26px;
+    font-size: 12px;
+    line-height: 16px;
+    justify-content: center;
+  }
+  .dashboard .dashboard-details {
+    gap: 12px;
+  }
+
+  .dashboard .chart-container h5 + div {
+    font-size: 24px;
+
+    line-height: 28px;
+  }
 }

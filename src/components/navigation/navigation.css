@@ -89,9 +89,106 @@
 .nav .nav-panel div:last-child span {
   padding: 4px;
 }
-/* //styleName: Degular/Subtitle/6X Small;
-font-family: Degular;
-font-size: 16px;
-line-height: 24px;
-letter-spacing: -0.4000000059604645px;
-text-align: center; */
+.nav .small-menu {
+  display: none;
+}
+
+@media screen and (max-width: 1200px) {
+  .nav {
+    padding: 0px;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .nav {
+    padding: 2px;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: -0.4000000059604645px;
+  }
+  .nav-logo {
+    padding: 0px 6px;
+  }
+  .nav-logo img {
+    width: 30px;
+    height: 30px;
+  }
+  .nav .icon {
+    height: 12px;
+    width: 12px;
+  }
+  .nav .nav-menu > div:not(.nav-app),
+  .app {
+    gap: 2px;
+  }
+  .app > div {
+    gap: 0px;
+  }
+  .nav .nav-panel {
+    gap: 4px;
+  }
+  .nav .nav-panel div:nth-child(1),
+  .nav .nav-panel div:nth-child(2) {
+    padding: 4px;
+  }
+  .nav .nav-panel .menu {
+    padding: 2px 6px 2px 2.5px;
+    gap: 4px;
+  }
+  .nav .nav-panel .user-inits {
+    border-radius: 100%;
+    font-size: 12px;
+    line-height: 14px;
+  }
+  .nav .nav-panel div:last-child span {
+    padding: 0px;
+  }
+}
+@media screen and (max-width: 750px) {
+  .nav {
+    padding: 0px;
+    border-radius: 0px;
+    flex-direction: column;
+  }
+  .nav .nav-menu {
+    margin-bottom: 10px;
+  }
+  .nav .nav-menu > div {
+    width: 100%;
+  }
+  .nav .nav-menu .active {
+    border-radius: 0px !important;
+  }
+  .nav > .small-menu {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .nav > .nav-logo {
+    display: none;
+  }
+  .nav-menu {
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+    display: none !important;
+  }
+
+  .menu .icon {
+    display: none;
+  }
+  .nav .nav-panel {
+    justify-content: space-between;
+    flex-direction: row-reverse;
+
+    display: none !important;
+  }
+  .nav-menu:not(.hide),
+  .nav .nav-panel:not(.hide) {
+    display: flex !important;
+  }
+  .nav .nav-panel .menu {
+    padding: 0px;
+    gap: 0px;
+  }
+}

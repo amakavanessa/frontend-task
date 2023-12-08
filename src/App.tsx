@@ -96,7 +96,7 @@ const App: React.FC = () => {
 
   return (
     <div className="container" id="container">
-      <div style={{ position: "absolute", left: 0, right: 0 }}>
+      <div className="app-wrapper">
         <NavigationComponent />
         <DashboardComponent
           transactions={transactions}

@@ -110,10 +110,12 @@ const FiltermodalComponent: React.FC<{
 
   const clearFilter = () => {
     props.clearFilter();
+    closeFilterModal();
   };
 
   const applyFilter = () => {
     props.sendFilterData(txnType, txnStatus, startDate, endDate);
+    closeFilterModal();
   };
 
   return (
@@ -160,7 +162,7 @@ const FiltermodalComponent: React.FC<{
             </div>
             <div style={{ position: "relative" }}>
               <h5>Transaction Type</h5>
-              <div>
+              <div className="txn-type-container">
                 <div className="txnType">
                   <div>
                     <input type="text" value={txnType.join(", ")} readOnly />
@@ -244,7 +246,7 @@ const FiltermodalComponent: React.FC<{
             </div>
             <div style={{ position: "relative" }}>
               <h5>Transaction Status</h5>
-              <div>
+              <div className="txn-type-container">
                 <div className="txnStatus">
                   <div>
                     <input
@@ -308,10 +310,12 @@ const FiltermodalComponent: React.FC<{
             </div>
           </div>
         </div>
+        {/* <div> */}
         <div className="filter-actions">
           <span onClick={clearFilter}>Clear</span>
           <span onClick={applyFilter}>Apply</span>
         </div>
+        {/* </div> */}
       </div>
     </div>
   );

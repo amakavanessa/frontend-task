@@ -67,7 +67,7 @@ const DashboardComponent: React.FC<{
   }, []);
 
   return (
-    <div>
+    <div className="dashboard-container">
       <div className="dashboard">
         <div className="app-bar">
           <span>

@@ -30,6 +30,15 @@ const NavigationComponent: React.FC = () => {
     setMenuModalVisible(!isMenuModalVisible);
     setNavAppModalVisible(false);
   };
+  function showSmallScreenNav() {
+    const navMenu = document.querySelector(".nav-menu");
+    const navPanel = document.querySelector(".nav-panel");
+
+    if (navMenu && navPanel) {
+      navMenu.classList.toggle("hide");
+      navPanel.classList.toggle("hide");
+    }
+  }
 
   const fetchUserData = async () => {
     try {
@@ -47,12 +56,26 @@ const NavigationComponent: React.FC = () => {
     <>
       {" "}
       <nav className="nav">
+        <div className="small-menu">
+          <div className="nav-logo">
+            <span>
+              <img src={Logo} alt="mainstack-logo" />
+            </span>
+          </div>
+          <span onClick={showSmallScreenNav}>
+            {" "}
+            <MdMenu
+              className="icon"
+              style={{ width: "30px", height: "30px" }}
+            />
+          </span>
+        </div>
         <div className="nav-logo">
           <span>
             <img src={Logo} alt="mainstack-logo" />
           </span>
         </div>
-        <div className="nav-menu">
+        <div className="nav-menu hide">
           <div>
             <span>
               <GoHome className="icon" />
@@ -107,7 +130,7 @@ const NavigationComponent: React.FC = () => {
             {isNavAppModalVisible && <NavAppModal />}
           </div>
         </div>
-        <div className="nav-panel">
+        <div className="nav-panel hide">
           <div>
             <span>
               <MdNotificationsNone className="icon" />

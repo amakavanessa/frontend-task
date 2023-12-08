@@ -118,7 +118,6 @@
 }
 .transaction .transaction-product {
   font-size: 16px;
-
   margin-bottom: 9px;
 }
 .transaction .transaction-amount {
@@ -149,4 +148,62 @@
 
 .transaction .right-align {
   text-align: right;
+}
+
+@media screen and (max-width: 950px) {
+  .transactions {
+    padding: 30px 44px;
+  }
+}
+@media screen and (max-width: 700px) {
+  .transactions {
+    padding: 30px 8px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .transactions {
+    padding: 30px 8px;
+  }
+  .transaction {
+    flex-direction: column;
+
+    justify-content: center;
+  }
+  .transaction .right-align {
+    text-align: left;
+    padding: 0 33px;
+  }
+  .transaction .transaction-title {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-start;
+  }
+  .transaction .withdrawal-icon,
+  .transaction .deposit-icon {
+    height: 24px;
+    width: 24px;
+  }
+  .transaction .transaction-product {
+    font-size: 14px;
+    margin-bottom: 0px;
+  }
+  .transaction .transaction-name,
+  .transaction .transaction-date {
+    font-size: 12px;
+  }
+  .transaction .transaction-amount {
+    font-size: 14px;
+    margin-bottom: 0px;
+  }
+  .transactions > div:first-child {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .transactions .action {
+    justify-content: flex-end;
+  }
+  .transactions .action > div {
+    padding: 6px 20px 6px 30px;
+    font-size: 12px;
+  }
 }
