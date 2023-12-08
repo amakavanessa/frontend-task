@@ -11,20 +11,19 @@ import { MdInfoOutline } from "react-icons/md";
 import {
   TransactionInterface,
   WalletInterface,
+  HighChartOptionInterface,
 } from "../../interface/interface";
 
 const DashboardComponent: React.FC<{
-  transactions: any;
-
-  activeFilterCount: any;
+  transactions: TransactionInterface[];
+  activeFilterCount: number;
 }> = (props: {
-  transactions: any;
-
-  activeFilterCount: any;
+  transactions: TransactionInterface[];
+  activeFilterCount: number;
 }) => {
   const [wallet, setWallet] = useState<WalletInterface>();
 
-  const options = {
+  const options: HighChartOptionInterface = {
     chart: {
       type: "spline",
     },
@@ -58,6 +57,7 @@ const DashboardComponent: React.FC<{
   options.xAxis.categories = transactions.map((txn: TransactionInterface) =>
     dayjs(txn.date).format("MMM D, YYYY")
   );
+
   options.series[0].data = transactions.map(
     (txn: TransactionInterface) => txn.amount
   );

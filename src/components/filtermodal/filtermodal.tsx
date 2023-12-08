@@ -8,8 +8,16 @@ const FiltermodalComponent: React.FC<{
     startDate: string | null,
     endDate: string | null
   ) => void;
-  clearFilter: any;
-}> = (props: { sendFilterData: any; clearFilter: any }) => {
+  clearFilter: () => void;
+}> = (props: {
+  sendFilterData: (
+    txnType: string[] | null,
+    txnStatus: string[] | null,
+    startDate: string | null,
+    endDate: string | null
+  ) => void;
+  clearFilter: () => void;
+}) => {
   const [txnType, setTxnType] = useState<string[]>([]);
   const [txnStatus, setTxnStatus] = useState<string[]>([]);
   const [startDate, setStartDate] = useState<string>("");

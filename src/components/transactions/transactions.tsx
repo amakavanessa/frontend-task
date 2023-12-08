@@ -11,13 +11,13 @@ import NoDataComponent from "../nodata/nodata";
 import { TransactionInterface } from "../../interface/interface";
 
 const TransactionsComponent: React.FC<{
-  transactions: any;
-  activeFilterCount: any;
-  clearFilter: any;
+  transactions: TransactionInterface[];
+  activeFilterCount: number;
+  clearFilter: () => void;
 }> = (props: {
-  transactions: any;
-  activeFilterCount: any;
-  clearFilter: any;
+  transactions: TransactionInterface[];
+  activeFilterCount: number;
+  clearFilter: () => void;
 }) => {
   const transactions = props.transactions;
 
@@ -40,14 +40,6 @@ const TransactionsComponent: React.FC<{
     if (filter && container) {
       filter.style.width = "456px";
       filter.style.right = "0px";
-      // Create a new div element
-      const overlayDiv = document.createElement("div");
-
-      // Set the class for the overlay div
-      overlayDiv.className = "overlay";
-      overlayDiv.innerText = "overlay";
-      // Append the overlay div inside the container
-      container.appendChild(overlayDiv);
     }
   }
   const clearFilter = () => {

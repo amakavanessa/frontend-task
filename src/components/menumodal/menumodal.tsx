@@ -11,8 +11,8 @@ import {
   MdOutlineLogout,
 } from "react-icons/md";
 
-const MenuModal: React.FC<{ user: UserInterface }> = (props: {
-  user: UserInterface;
+const MenuModal: React.FC<{ user: UserInterface | null }> = (props: {
+  user: UserInterface | null;
 }) => {
   const user = props.user;
   console.log(user);

@@ -26,3 +26,23 @@ export interface UserInterface {
   last_name: string;
   email: string;
 }
+
+export interface HighChartOptionInterface {
+  chart: {
+    type: string;
+  };
+  title: {
+    text: string | null;
+  };
+  xAxis: {
+    categories: string[];
+  };
+  series: [
+    {
+      data: number[];
+    }
+  ];
+  credits: {
+    enabled: boolean;
+  };
+}

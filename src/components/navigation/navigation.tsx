@@ -14,10 +14,10 @@ import {
   MdOutlineChat,
   MdOutlineKeyboardArrowDown,
 } from "react-icons/md";
-// import { UserInterface } from "../../interface/interface";
+import { UserInterface } from "../../interface/interface";
 
 const NavigationComponent: React.FC = () => {
-  const [user, setUser] = useState<any | null>();
+  const [user, setUser] = useState<UserInterface | null>(null);
   const [isNavAppModalVisible, setNavAppModalVisible] = useState(false);
   const [isMenuModalVisible, setMenuModalVisible] = useState(false);
 

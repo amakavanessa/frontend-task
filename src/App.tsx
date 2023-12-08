@@ -7,8 +7,7 @@ import FiltermodalComponent from "./components/filtermodal/filtermodal";
 import { TransactionInterface } from "./interface/interface";
 
 const App: React.FC = () => {
-  const [transactions, setTransactions] = useState([]);
-  // const [txn, setTxn] = useState([]);
+  const [transactions, setTransactions] = useState<TransactionInterface[]>([]);
   const [txnType, setTxnType] = useState<string[] | null>([]);
   const [txnStatus, setTxnStatus] = useState<string[] | null>([]);
   const [startDate, setStartDate] = useState<string | null>(null);
@@ -49,7 +48,7 @@ const App: React.FC = () => {
       );
       const txns = await response.json();
 
-      let filteredData: any = [...txns];
+      let filteredData: TransactionInterface[] = [...txns];
 
       if (startDate) {
         filteredData = filteredData.filter((txn: TransactionInterface) => {
@@ -82,7 +81,6 @@ const App: React.FC = () => {
       }
 
       setTransactions(filteredData);
-      // setTxn(txns);
     } catch (error) {
       console.error(error);
     }

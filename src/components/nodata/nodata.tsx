@@ -3,7 +3,7 @@ import "./nodata.css";
 import { MdOutlineReceiptLong } from "react-icons/md";
 
 const NoDataComponent: React.FC<{ clearFilter: () => void }> = (props: {
-  clearFilter: any;
+  clearFilter: () => void;
 }) => {
   return (
     <div className="no-data">
