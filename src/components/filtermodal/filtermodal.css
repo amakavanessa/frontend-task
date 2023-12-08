@@ -37,25 +37,32 @@
   font-weight: 500;
 }
 .filter-modal .modal-body {
-  padding: 8px 22px;
   display: flex;
   flex-direction: column;
   gap: 24px;
 }
 
+.filter-modal .modal-body > div:not(.date-container) {
+  padding: 8px 22px;
+}
+.filter-modal .date-container {
+  padding: 8px 12px 8px 18px;
+}
 .filter-modal .date-container ul {
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between;
+   */
+  gap: 12px;
 }
 .filter-modal .date-container ul li {
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
   padding: 10px 18px;
   border-radius: 100px;
   border: 1px solid #eff1f6;
   background-color: #eff1f6;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 600;
   line-height: 16px;
   letter-spacing: -0.4000000059604645px;
@@ -154,4 +161,37 @@
 .filter-modal input[type="checkbox"]:checked,
 .filter-modal input[type="checkbox"]:checked {
   accent-color: #1c1b1f !important;
+}
+.filter-actions {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  left: 20px;
+  display: flex;
+  gap: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: -0.4000000059604645px;
+}
+
+.filter-actions > span {
+  padding: 12px 82px;
+
+  border-radius: 100px;
+  cursor: default;
+}
+/* .filter-actions > span:first-child:hover {
+  color: red;
+} */
+
+.filter-actions > span:first-child {
+  border: 1px solid #eff1f6;
+  background: linear-gradient(0deg, #ffffff, #ffffff),
+    linear-gradient(0deg, #eff1f6, #eff1f6);
+}
+
+.filter-actions > span:last-child {
+  background: #dbdee5;
+  color: #ffffff;
 }

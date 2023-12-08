@@ -2,7 +2,9 @@ import React from "react";
 import "./nodata.css";
 import { MdOutlineReceiptLong } from "react-icons/md";
 
-const NoDataComponent: React.FC = () => {
+const NoDataComponent: React.FC<{ clearFilter: () => void }> = (props: {
+  clearFilter: any;
+}) => {
   return (
     <div className="no-data">
       <div>
@@ -14,7 +16,7 @@ const NoDataComponent: React.FC = () => {
 
         <p>Change your filters to see more results, or add a new product.</p>
 
-        <button>Clear Filter</button>
+        <button onClick={props.clearFilter}>Clear Filter</button>
       </div>
     </div>
   );

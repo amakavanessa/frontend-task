@@ -26,6 +26,13 @@ const App: React.FC = () => {
     setEndDate(endDate);
   };
 
+  const clearFilter = () => {
+    setTxnType(null);
+    setTxnStatus(null);
+    setStartDate(null);
+    setEndDate(null);
+  };
+
   const countActiveFilters = () => {
     let count = 0;
     if (txnType?.length) count++;
@@ -90,8 +97,8 @@ const App: React.FC = () => {
   }, [activeFilterCount, txnType, txnStatus, startDate, endDate]);
 
   return (
-    <div>
-      <div className="container" id="container">
+    <div className="container" id="container">
+      <div style={{ position: "absolute", left: 0, right: 0 }}>
         <NavigationComponent />
         <DashboardComponent
           transactions={transactions}
@@ -100,8 +107,12 @@ const App: React.FC = () => {
         <TransactionsComponent
           transactions={transactions}
           activeFilterCount={activeFilterCount}
+          clearFilter={clearFilter}
         />
-        <FiltermodalComponent sendFilterData={populateFilter} />
+        <FiltermodalComponent
+          sendFilterData={populateFilter}
+          clearFilter={clearFilter}
+        />
       </div>
     </div>
   );

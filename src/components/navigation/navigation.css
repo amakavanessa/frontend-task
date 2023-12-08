@@ -14,7 +14,6 @@
   letter-spacing: -0.4000000059604645px;
   display: flex;
   justify-content: space-between;
-  z-index: -1 !important;
 }
 .nav-logo {
   padding: 2px 12px;
@@ -27,12 +26,17 @@
   display: flex;
   align-items: center;
 }
-.nav .nav-menu > div {
+.nav .nav-menu > div:not(.nav-app),
+.app {
   padding: 8px 18px 8px 14px;
   display: flex;
   gap: 4px;
   cursor: default;
   border-radius: 100px;
+}
+.app > div {
+  display: flex;
+  gap: 2px;
 }
 .nav .nav-menu > div:not(.active):hover {
   background-color: #eff1f6;
@@ -63,7 +67,7 @@
 .nav .nav-panel div:nth-child(2) {
   padding: 10px;
 }
-.nav .nav-panel div:last-child {
+.nav .nav-panel .menu {
   padding: 4px 12px 4px 5px;
   display: flex;
   gap: 8px;
@@ -72,9 +76,7 @@
   background: #eff1f6;
   border-radius: 100px;
 }
-.nav .nav-panel div:last-child > div {
-  /* height: 32px;
-  width: 32px; */
+.nav .nav-panel .user-inits {
   border-radius: 100%;
   font-size: 14px;
   line-height: 16px;

@@ -1,0 +1,64 @@
+.menu-modal-container {
+  width: 400px;
+  /* padding: 20px 22px; */
+  box-shadow: 0px 4px 8px 0px #5c738314;
+  transition: 0.5s ease;
+  border-radius: 20px;
+  box-shadow: 0px 2px 6px 0px #010b120f;
+  z-index: 100;
+  background-color: #ffffff;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 30px;
+  /* left: 0; */
+}
+
+.menu-modal {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background-color: #ffffff;
+  z-index: 50;
+}
+
+.menu-modal > div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  transition: 0.5s ease all;
+}
+
+.menu-modal .user-initial {
+  border-radius: 100%;
+  margin: 0px 8px 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  color: #ffffff;
+  background: linear-gradient(138.98deg, #5c6670 2.33%, #131316 96.28%);
+}
+
+.menu-modal > div > span {
+  padding: 8px;
+}
+
+.menu-modal > div h5 {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: -0.4000000059604645px;
+  text-align: left;
+  padding: 2px 0;
+  color: #131316;
+}
+
+.menu-modal > div h3 {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 40px;
+  letter-spacing: -0.6000000238418579px;
+}

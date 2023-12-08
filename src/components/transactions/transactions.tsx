@@ -8,11 +8,17 @@ import {
 } from "react-icons/md";
 import "./transactions.css";
 import NoDataComponent from "../nodata/nodata";
+import { TransactionInterface } from "../../interface/interface";
 
 const TransactionsComponent: React.FC<{
   transactions: any;
   activeFilterCount: any;
-}> = (props: { transactions: any; activeFilterCount: any }) => {
+  clearFilter: any;
+}> = (props: {
+  transactions: any;
+  activeFilterCount: any;
+  clearFilter: any;
+}) => {
   const transactions = props.transactions;
 
   const activeFilterCount = props.activeFilterCount;
@@ -34,23 +40,33 @@ const TransactionsComponent: React.FC<{
     if (filter && container) {
       filter.style.width = "456px";
       filter.style.right = "0px";
-      container.classList.add("overlay");
+      // Create a new div element
+      const overlayDiv = document.createElement("div");
+
+      // Set the class for the overlay div
+      overlayDiv.className = "overlay";
+      overlayDiv.innerText = "overlay";
+      // Append the overlay div inside the container
+      container.appendChild(overlayDiv);
     }
   }
-
+  const clearFilter = () => {
+    props.clearFilter();
+  };
   return (
     <div>
       <div className="transactions">
         <div>
           <div>
-            {<h3>{activeFilterCount}</h3>}
             <h3>{transactions.length} Transactions</h3>
             <div>Your transaction for all time</div>
           </div>
           <div className="action">
             <div onClick={() => showFilterModal()}>
               <span>Filter </span>
-
+              {activeFilterCount ? (
+                <span className="filtercount">{activeFilterCount}</span>
+              ) : null}
               <span>
                 <MdExpandMore className="icon" />
               </span>
@@ -65,11 +81,11 @@ const TransactionsComponent: React.FC<{
         </div>
         <div className="transaction-details">
           {activeFilterCount && !transactions.length ? (
-            <NoDataComponent />
+            <NoDataComponent clearFilter={clearFilter} />
           ) : (
             <div>
               <div className="transaction-container">
-                {transactions.map((txn: any) => (
+                {transactions.map((txn: TransactionInterface) => (
                   <div className="transaction" key={txn.payment_reference}>
                     <div className="transaction-title">
                       <div>
@@ -149,8 +165,6 @@ const TransactionsComponent: React.FC<{
             </div>
           )}
         </div>
-
-        {/*  <div>Hello</div> : null} */}
       </div>
     </div>
   );

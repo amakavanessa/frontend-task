@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { MdExpandMore, MdOutlineClose, MdExpandLess } from "react-icons/md";
 import "./filtermodal.css";
 const FiltermodalComponent: React.FC<{
@@ -8,7 +8,8 @@ const FiltermodalComponent: React.FC<{
     startDate: string | null,
     endDate: string | null
   ) => void;
-}> = (props: { sendFilterData: any }) => {
+  clearFilter: any;
+}> = (props: { sendFilterData: any; clearFilter: any }) => {
   const [txnType, setTxnType] = useState<string[]>([]);
   const [txnStatus, setTxnStatus] = useState<string[]>([]);
   const [startDate, setStartDate] = useState<string>("");
@@ -99,199 +100,209 @@ const FiltermodalComponent: React.FC<{
     setEndDate(event.target.value);
   };
 
-  useEffect(() => {
+  const clearFilter = () => {
+    props.clearFilter();
+  };
+
+  const applyFilter = () => {
     props.sendFilterData(txnType, txnStatus, startDate, endDate);
-  });
+  };
 
   return (
-    <div className="filter-modal" id="filter">
-      <div>
-        <div className="modal-top">
-          Filter
-          <span onClick={() => closeFilterModal()}>
-            <MdOutlineClose className="icon" />
-          </span>
-        </div>
-        <div className="modal-body">
-          <div className="date-container">
-            <ul>
-              <li>Today</li>
-              <li>Last 7 days</li>
-              <li>This month</li>
-              <li>Last 3 months</li>
-            </ul>
+    <div>
+      <div className="filter-modal" id="filter">
+        <div>
+          <div className="modal-top">
+            Filter
+            <span onClick={() => closeFilterModal()}>
+              <MdOutlineClose className="icon" />
+            </span>
           </div>
-          <div className="range-container">
-            <h5>Date Range</h5>
-            <div>
-              <div>
-                <span>
-                  <input
-                    type="date"
-                    className="startDate"
-                    onChange={updateStartDate}
-                  />
-                </span>
-              </div>
-              <div>
-                <span>
-                  <input
-                    type="date"
-                    className="endDate"
-                    onChange={updateEndDate}
-                  />
-                </span>
-              </div>
+          <div className="modal-body">
+            <div className="date-container">
+              <ul>
+                <li>Today</li>
+                <li>Last 7 days</li>
+                <li>This month</li>
+                <li>Last 3 months</li>
+              </ul>
             </div>
-          </div>
-          <div style={{ position: "relative" }}>
-            <h5>Transaction Type</h5>
-            <div>
-              <div className="txnType">
+            <div className="range-container">
+              <h5>Date Range</h5>
+              <div>
                 <div>
-                  <input type="text" value={txnType.join(", ")} readOnly />
-                </div>
-                <span
-                  onClick={() => showTxnTypeDropdown()}
-                  id="expand-more-icon"
-                >
-                  <MdExpandMore />
-                </span>
-                <span
-                  onClick={() => hideTxnTypeDropdown()}
-                  id="expand-less-icon"
-                >
-                  <MdExpandLess />
-                </span>
-              </div>
-              <div className="txnTypeDropdown" id="txnTypeDropdown">
-                <div>
-                  <input
-                    type="checkbox"
-                    value="Store Transactions"
-                    name="storeTransaction"
-                    id="storeTransaction"
-                    onChange={updateTxnTypeValue}
-                  />
-                  <label htmlFor="storeTransaction">Store Transactions</label>
+                  <span>
+                    <input
+                      type="date"
+                      className="startDate"
+                      onChange={updateStartDate}
+                    />
+                  </span>
                 </div>
                 <div>
-                  <input
-                    type="checkbox"
-                    value="Get Tipped"
-                    name="getTipped"
-                    id="getTipped"
-                    onChange={updateTxnTypeValue}
-                  />
-                  <label htmlFor="getTipped">Get Tipped</label>
-                </div>
-                <div>
-                  <input
-                    type="checkbox"
-                    value="Withdrawals"
-                    name="withdrawals"
-                    id="withdrawals"
-                    onChange={updateTxnTypeValue}
-                  />
-                  <label htmlFor="withdrawals">Withdrawals</label>
-                </div>
-                <div>
-                  <input
-                    type="checkbox"
-                    value="Chargebacks"
-                    name="chargebacks"
-                    id="chargebacks"
-                    onChange={updateTxnTypeValue}
-                  />
-                  <label htmlFor="chargebacks">Chargebacks</label>
-                </div>
-                <div>
-                  <input
-                    type="checkbox"
-                    value="Cashbacks"
-                    name="cashbacks"
-                    id="cashbacks"
-                    onChange={updateTxnTypeValue}
-                  />
-                  <label htmlFor="cashbacks">Cashbacks</label>
-                </div>
-                <div>
-                  <input
-                    type="checkbox"
-                    value="Refer & Earn"
-                    name="referEarn"
-                    id="referEarn"
-                    onChange={updateTxnTypeValue}
-                  />
-                  <label htmlFor="referEarn">Refer & Earn</label>
+                  <span>
+                    <input
+                      type="date"
+                      className="endDate"
+                      onChange={updateEndDate}
+                    />
+                  </span>
                 </div>
               </div>
             </div>
-          </div>
-          <div style={{ position: "relative" }}>
-            <h5>Transaction Status</h5>
-            <div>
-              <div className="txnStatus">
-                <div>
-                  <input
-                    type="text"
-                    value={txnStatus
-                      .map(
-                        (status) =>
-                          status.charAt(0).toUpperCase() + status.slice(1)
-                      )
-                      .join(", ")}
-                    readOnly
-                  />
+            <div style={{ position: "relative" }}>
+              <h5>Transaction Type</h5>
+              <div>
+                <div className="txnType">
+                  <div>
+                    <input type="text" value={txnType.join(", ")} readOnly />
+                  </div>
+                  <span
+                    onClick={() => showTxnTypeDropdown()}
+                    id="expand-more-icon"
+                  >
+                    <MdExpandMore />
+                  </span>
+                  <span
+                    onClick={() => hideTxnTypeDropdown()}
+                    id="expand-less-icon"
+                  >
+                    <MdExpandLess />
+                  </span>
                 </div>
-                <span
-                  onClick={() => showTxnStatusDropdown()}
-                  id="expand-more-icon2"
-                >
-                  <MdExpandMore />
-                </span>
-                <span
-                  onClick={() => hideTxnStatusDropdown()}
-                  id="expand-less-icon2"
-                >
-                  <MdExpandLess />
-                </span>
+                <div className="txnTypeDropdown" id="txnTypeDropdown">
+                  <div>
+                    <input
+                      type="checkbox"
+                      value="Store Transactions"
+                      name="storeTransaction"
+                      id="storeTransaction"
+                      onChange={updateTxnTypeValue}
+                    />
+                    <label htmlFor="storeTransaction">Store Transactions</label>
+                  </div>
+                  <div>
+                    <input
+                      type="checkbox"
+                      value="Get Tipped"
+                      name="getTipped"
+                      id="getTipped"
+                      onChange={updateTxnTypeValue}
+                    />
+                    <label htmlFor="getTipped">Get Tipped</label>
+                  </div>
+                  <div>
+                    <input
+                      type="checkbox"
+                      value="Withdrawals"
+                      name="withdrawals"
+                      id="withdrawals"
+                      onChange={updateTxnTypeValue}
+                    />
+                    <label htmlFor="withdrawals">Withdrawals</label>
+                  </div>
+                  <div>
+                    <input
+                      type="checkbox"
+                      value="Chargebacks"
+                      name="chargebacks"
+                      id="chargebacks"
+                      onChange={updateTxnTypeValue}
+                    />
+                    <label htmlFor="chargebacks">Chargebacks</label>
+                  </div>
+                  <div>
+                    <input
+                      type="checkbox"
+                      value="Cashbacks"
+                      name="cashbacks"
+                      id="cashbacks"
+                      onChange={updateTxnTypeValue}
+                    />
+                    <label htmlFor="cashbacks">Cashbacks</label>
+                  </div>
+                  <div>
+                    <input
+                      type="checkbox"
+                      value="Refer & Earn"
+                      name="referEarn"
+                      id="referEarn"
+                      onChange={updateTxnTypeValue}
+                    />
+                    <label htmlFor="referEarn">Refer & Earn</label>
+                  </div>
+                </div>
               </div>
+            </div>
+            <div style={{ position: "relative" }}>
+              <h5>Transaction Status</h5>
+              <div>
+                <div className="txnStatus">
+                  <div>
+                    <input
+                      type="text"
+                      value={txnStatus
+                        .map(
+                          (status) =>
+                            status.charAt(0).toUpperCase() + status.slice(1)
+                        )
+                        .join(", ")}
+                      readOnly
+                    />
+                  </div>
+                  <span
+                    onClick={() => showTxnStatusDropdown()}
+                    id="expand-more-icon2"
+                  >
+                    <MdExpandMore />
+                  </span>
+                  <span
+                    onClick={() => hideTxnStatusDropdown()}
+                    id="expand-less-icon2"
+                  >
+                    <MdExpandLess />
+                  </span>
+                </div>
 
-              <div className="txnStatusDropdown" id="txnStatusDropdown">
-                <div>
-                  <input
-                    type="checkbox"
-                    value="successful"
-                    name="successful"
-                    id="successful"
-                    onChange={updateTxnStatusValue}
-                  />
-                  <label htmlFor="successful">Successful</label>
-                </div>
-                <div>
-                  <input
-                    type="checkbox"
-                    value="pending"
-                    name="pending"
-                    id="pending"
-                    onChange={updateTxnStatusValue}
-                  />
-                  <label htmlFor="pending">Pending</label>
-                </div>
-                <div>
-                  <input
-                    type="checkbox"
-                    value="failed"
-                    name="failed"
-                    id="failed"
-                    onChange={updateTxnStatusValue}
-                  />
-                  <label htmlFor="failed">Failed</label>
+                <div className="txnStatusDropdown" id="txnStatusDropdown">
+                  <div>
+                    <input
+                      type="checkbox"
+                      value="successful"
+                      name="successful"
+                      id="successful"
+                      onChange={updateTxnStatusValue}
+                    />
+                    <label htmlFor="successful">Successful</label>
+                  </div>
+                  <div>
+                    <input
+                      type="checkbox"
+                      value="pending"
+                      name="pending"
+                      id="pending"
+                      onChange={updateTxnStatusValue}
+                    />
+                    <label htmlFor="pending">Pending</label>
+                  </div>
+                  <div>
+                    <input
+                      type="checkbox"
+                      value="failed"
+                      name="failed"
+                      id="failed"
+                      onChange={updateTxnStatusValue}
+                    />
+                    <label htmlFor="failed">Failed</label>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+        </div>
+        <div className="filter-actions">
+          <span onClick={clearFilter}>Clear</span>
+          <span onClick={applyFilter}>Apply</span>
         </div>
       </div>
     </div>

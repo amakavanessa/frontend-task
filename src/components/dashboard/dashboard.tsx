@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import dayjs from "dayjs";
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
@@ -8,7 +8,10 @@ import icon2 from "../../assets/ProductIcons5).svg";
 import icon3 from "../../assets/ProductIcons(3).svg";
 import icon4 from "../../assets/ProductIcons(4).svg";
 import { MdInfoOutline } from "react-icons/md";
-import { TransactionInterface } from "../../interface/interface";
+import {
+  TransactionInterface,
+  WalletInterface,
+} from "../../interface/interface";
 
 const DashboardComponent: React.FC<{
   transactions: any;
@@ -19,6 +22,8 @@ const DashboardComponent: React.FC<{
 
   activeFilterCount: any;
 }) => {
+  const [wallet, setWallet] = useState<WalletInterface>();
+
   const options = {
     chart: {
       type: "spline",
@@ -40,44 +45,15 @@ const DashboardComponent: React.FC<{
   };
   const transactions = props.transactions;
 
-  const successDepositAmount = transactions
-    .filter(
-      (txn: TransactionInterface) =>
-        txn.type === "deposit" && txn.status === "successful"
-    )
-    .reduce(
-      (total: number, txn: TransactionInterface) => total + txn.amount,
-      0
-    );
-  const pendingDepositAmount = transactions
-    .filter(
-      (txn: TransactionInterface) =>
-        txn.type === "deposit" && txn.status === "pending"
-    )
-    .reduce(
-      (total: number, txn: TransactionInterface) => total + txn.amount,
-      0
-    );
-
-  const successDebitAmount = transactions
-    .filter(
-      (txn: TransactionInterface) =>
-        txn.type === "withdrawal" && txn.status === "successful"
-    )
-    .reduce(
-      (total: number, txn: TransactionInterface) => total + txn.amount,
-      0
-    );
-
-  const pendingDebitAmount = transactions
-    .filter(
-      (txn: TransactionInterface) =>
-        txn.type === "withdrawal" && txn.status === "pending"
-    )
-    .reduce(
-      (total: number, txn: TransactionInterface) => total + txn.amount,
-      0
-    );
+  const fetchWalletData = async () => {
+    try {
+      await fetch("https://fe-task-api.mainstack.io/wallet")
+        .then((res) => res.json())
+        .then((wallet) => setWallet(wallet));
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   options.xAxis.categories = transactions.map((txn: TransactionInterface) =>
     dayjs(txn.date).format("MMM D, YYYY")
@@ -86,20 +62,9 @@ const DashboardComponent: React.FC<{
     (txn: TransactionInterface) => txn.amount
   );
 
-  const availableBalance =
-    successDepositAmount - (successDebitAmount + pendingDebitAmount);
-
-  const ledgerBalance =
-    successDepositAmount -
-    (successDebitAmount - pendingDebitAmount + pendingDepositAmount);
-
-  // console.log(transactions);
-  // console.log(
-  //   successDepositAmount,
-  //   successDebitAmount,
-  //   pendingDebitAmount,
-  //   availableBalance
-  // );
+  useEffect(() => {
+    fetchWalletData();
+  }, []);
 
   return (
     <div>
@@ -127,7 +92,12 @@ const DashboardComponent: React.FC<{
               <div>
                 <h5>Available Balance</h5>
                 <div>
-                  USD {new Intl.NumberFormat().format(availableBalance)}
+                  <span>
+                    USD{" "}
+                    {wallet
+                      ? new Intl.NumberFormat().format(wallet.balance)
+                      : 0.0}
+                  </span>
                 </div>
               </div>
               <div className="btn">
@@ -146,7 +116,12 @@ const DashboardComponent: React.FC<{
                   <MdInfoOutline className="icons" />
                 </span>
               </h5>
-              <span>USD {new Intl.NumberFormat().format(ledgerBalance)}</span>
+              <span>
+                USD{" "}
+                {wallet
+                  ? new Intl.NumberFormat().format(wallet.ledger_balance)
+                  : 0.0}
+              </span>
             </div>
             <div>
               <h5>
@@ -156,7 +131,10 @@ const DashboardComponent: React.FC<{
                 </span>
               </h5>
               <span>
-                USD {new Intl.NumberFormat().format(successDebitAmount)}
+                USD{" "}
+                {wallet
+                  ? new Intl.NumberFormat().format(wallet.total_payout)
+                  : 0.0}
               </span>
             </div>
             <div>
@@ -167,7 +145,10 @@ const DashboardComponent: React.FC<{
                 </span>
               </h5>
               <span>
-                USD {new Intl.NumberFormat().format(successDepositAmount)}
+                USD{" "}
+                {wallet
+                  ? new Intl.NumberFormat().format(wallet.total_revenue)
+                  : 0.0}
               </span>
             </div>
             <div>
@@ -178,7 +159,10 @@ const DashboardComponent: React.FC<{
                 </span>
               </h5>
               <span>
-                USD {new Intl.NumberFormat().format(pendingDebitAmount)}
+                USD{" "}
+                {wallet
+                  ? new Intl.NumberFormat().format(wallet.pending_payout)
+                  : 0.0}
               </span>
             </div>
           </div>
